@@ -75,18 +75,10 @@ async def greet_user(message: types.Message):
 
 ### 5. Исправление бага
 
-- Исправлен баг, из-за которого бот не всегда корректно отвечал на жанр, если файл изображения не был найден.
-- Ранее код для жанра "ужасы" выглядел так:
-  ```python
-  @dp.message_handler(lambda message: message.text.lower() == "ужасы")
-  async def send_horror_image(message: types.Message):
-      logging.info(f"Received message: {message.text} from {message.from_user.username}")
-      try:
-          with open(HORROR_IMAGE_PATH, 'rb') as photo:
-              await message.reply_photo(photo=photo, caption="Ваше описание похоже на жанр ужасы")
-      except FileNotFoundError:
-          await message.answer("К сожалению, не удалось определить жанр вашего фильма")
-  ```
+
+
+### 5. Исправление бага
+
 - После исправления бага код теперь выглядит так:
   ```python
   @dp.message_handler(lambda message: message.text.lower() == "детектив")
@@ -98,7 +90,7 @@ async def greet_user(message: types.Message):
       except FileNotFoundError:
           await message.answer("К сожалению, не удалось определить жанр вашего фильма")
   ```
-- Теперь, если бот не может найти нужное изображение, он отправляет сообщение с ошибкой: 
+- Исправлен баг: теперь бот отвечает сообщением, если не смог определить жанр фильма. Сообщение:
   ```
   К сожалению, не удалось определить жанр вашего фильма.
   ```
