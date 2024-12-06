@@ -16,6 +16,8 @@
   2. Выбрать нужного бота.
   3. Отправить команду `/setuserpic`.
   4. Загрузить изображение аватарки.
+![image](https://github.com/user-attachments/assets/cffda5d5-3617-47fe-ada2-1d408ed57c7a)
+
 
 
 ### 2. Описание и "О боте"
